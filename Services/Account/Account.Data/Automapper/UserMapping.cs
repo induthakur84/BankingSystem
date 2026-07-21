@@ -1,4 +1,4 @@
-﻿using Account.Domain;
+using Account.Domain;
 using Account.DTO.Response;
 using Account.DTO.Resquest;
 using AutoMapper;
@@ -10,8 +10,8 @@ namespace Account.Data.Automapper
 
         public UserMapping()
         {
-            CreateMap<User, UserResponse>();
-            CreateMap<UserRequest, User>();
+            CreateMap<User, UserResponse>().ReverseMap();
+            CreateMap<UserRequest, User>().ReverseMap();
         }
     }
 }

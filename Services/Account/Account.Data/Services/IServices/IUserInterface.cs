@@ -1,4 +1,4 @@
-﻿using Account.DTO.Response;
+using Account.DTO.Response;
 using Account.DTO.Resquest;
 
 namespace Account.Data.Services.IServices
@@ -8,10 +8,10 @@ namespace Account.Data.Services.IServices
 
         Task<UserRequest> Create(UserRequest request);
 
-        Task<UserResponse> Update(int id,UserRequest request);
+        Task<UserResponse?> Update(int id,UserRequest request);
 
         Task<IEnumerable<UserResponse>> GetAll();
-        Task<UserResponse> GetById(int id);
+        Task<UserResponse?> GetById(int id);
 
         Task<bool> Delete(int id);
     }
