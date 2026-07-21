@@ -26,7 +26,7 @@ namespace Account.Data.Services
             throw new NotImplementedException();
         }
 
-        public Task<UserResponse> Update(UserRequest request)
+        public Task<UserResponse> Update(int id, UserRequest request)
         {
             throw new NotImplementedException();
         }

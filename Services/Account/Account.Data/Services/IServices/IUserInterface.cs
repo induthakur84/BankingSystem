@@ -8,7 +8,7 @@ namespace Account.Data.Services.IServices
 
         Task<UserRequest> Create(UserRequest request);
 
-        Task<UserResponse> Update(UserRequest request);
+        Task<UserResponse> Update(int id,UserRequest request);
 
         Task<IEnumerable<UserResponse>> GetAll();
         Task<UserResponse> GetById(int id);
