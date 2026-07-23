@@ -9,7 +9,11 @@ namespace Account.Data.Context
         public AccountDBContext(DbContextOptions<AccountDBContext> options) : base(options) { }
            
         public DbSet<User> Users { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
 
+        public DbSet<Category> Categories { get; set; } 
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
