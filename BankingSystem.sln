@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Account.IntegrationTest", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Account.UnitTesting", "Account.UnitTesting\Account.UnitTesting.csproj", "{CF63FB58-CCB5-4305-80C4-BFB0C83B716E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{4B1AC562-0FAD-49C6-BFC9-F183836DDDA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCommonCode", "ProjectCommonCode\ProjectCommonCode.csproj", "{7E9ADEB6-5A58-4392-8AA7-EE54BC82FA8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +105,10 @@ Global
 		{CF63FB58-CCB5-4305-80C4-BFB0C83B716E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF63FB58-CCB5-4305-80C4-BFB0C83B716E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF63FB58-CCB5-4305-80C4-BFB0C83B716E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9ADEB6-5A58-4392-8AA7-EE54BC82FA8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9ADEB6-5A58-4392-8AA7-EE54BC82FA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9ADEB6-5A58-4392-8AA7-EE54BC82FA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9ADEB6-5A58-4392-8AA7-EE54BC82FA8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -123,6 +131,7 @@ Global
 		{78CDBBE8-D668-3640-5389-A0FE00F94F27} = {BD61DF54-E3DC-4088-A7F3-04528386B8BF}
 		{5EB00A48-14F0-4531-86A1-E44C7D005D86} = {BD61DF54-E3DC-4088-A7F3-04528386B8BF}
 		{CF63FB58-CCB5-4305-80C4-BFB0C83B716E} = {BD61DF54-E3DC-4088-A7F3-04528386B8BF}
+		{7E9ADEB6-5A58-4392-8AA7-EE54BC82FA8E} = {4B1AC562-0FAD-49C6-BFC9-F183836DDDA2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {411D356F-E5D2-4117-9CA6-5C8C2EB5C948}

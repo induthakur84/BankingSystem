@@ -2,6 +2,7 @@ using Account.Data.Services.IServices;
 using Account.DTO.Response;
 using Account.DTO.Resquest;
 using Microsoft.AspNetCore.Mvc;
+using ProjectCommonCode;
 
 namespace Account.API.Controllers
 {
@@ -29,9 +30,20 @@ namespace Account.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserResponse>>> GetAll()
+        public async Task<ActionResult<PageResults<UserResponse>>> GetAll(
+           int pageNumber = 1,
+
+            int pageSize = 10,
+
+            string? search = null,
+
+            string? sortBy = null,
+            string? sortOrder = "desc"
+            )
         {
-            var users = await _userService.GetAll();
+            var users = await _userService.GetAll(
+                pageNumber, pageSize, search, sortBy, sortOrder
+                );
             return Ok(users);
         }
 
