@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\ProjectCommonCode\ProjectCommonCode.csproj" />
-    <ProjectReference Include="..\..\..\ProjectCommonCode\ProjectCommonCode.csproj" />
     <ProjectReference Include="..\Account.Domain\Account.Domain.csproj" />
     <ProjectReference Include="..\Account.DTO\Account.DTO.csproj" />
   </ItemGroup>

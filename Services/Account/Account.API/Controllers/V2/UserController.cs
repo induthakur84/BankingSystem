@@ -1,12 +1,14 @@
 using Account.Data.Services.IServices;
 using Account.DTO.Response;
 using Account.DTO.Resquest;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using ProjectCommonCode;
 
-namespace Account.API.Controllers
+namespace Account.API.Controllers.V2
 {
-    [Route("api/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -44,7 +46,16 @@ namespace Account.API.Controllers
             var users = await _userService.GetAll(
                 pageNumber, pageSize, search, sortBy, sortOrder
                 );
-            return Ok(users);
+
+
+            var response = new
+            {
+                Users = users,
+                isv2api = true,
+                abc= false,
+                asdfsd= true
+            };
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
