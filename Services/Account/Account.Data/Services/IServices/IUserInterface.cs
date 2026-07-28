@@ -1,9 +1,13 @@
 using Account.DTO.Response;
 using Account.DTO.Resquest;
 using ProjectCommonCode;
+using ProjectCommonCode.RegisterDependency;
 
 namespace Account.Data.Services.IServices
 {
+   // [RegisterSingleton]
+   // [RegisterTransient]
+    [RegisterScoped]
     public interface IUserInterface
     {
 

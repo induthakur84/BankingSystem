@@ -1,11 +1,11 @@
 using Account.Data.Automapper;
 using Account.Data.Context;
 using Account.Data.Services;
-using Account.Data.Services.IServices;
 using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using ProjectCommonCode;
+using ProjectCommonCode.RegisterDependency;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +16,16 @@ builder.Services.AddDbContext<AccountDBContext>(options =>
 
 builder.Services.AddAutoMapper(typeof(UserMapping));
 
-builder.Services.AddScoped<IUserInterface, UserService>();
+
+
+
+builder.Services.RegisterServices(typeof(UserService).Assembly.FullName);
+
+
+//
+
+
+//builder.Services.AddScoped<IUserInterface, UserService>();
 
 builder.Services.AddControllers();
 
@@ -104,7 +113,6 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
