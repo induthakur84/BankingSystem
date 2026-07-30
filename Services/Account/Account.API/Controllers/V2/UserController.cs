@@ -4,6 +4,7 @@ using Account.DTO.Resquest;
 using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using ProjectCommonCode;
+using ProjectCommonCode.Exceptions;
 
 namespace Account.API.Controllers.V2
 {
@@ -24,7 +25,7 @@ namespace Account.API.Controllers.V2
         {
             if (request == null)
             {
-                return BadRequest("User data cannot be null");
+                throw new BadRequestException("User data cannot be null");
             }
             
             var createdUser = await _userService.Create(request);
@@ -62,10 +63,6 @@ namespace Account.API.Controllers.V2
         public async Task<ActionResult<UserResponse>> GetById(int id)
         {
             var user = await _userService.GetById(id);
-            if (user == null)
-            {
-                return NotFound($"User with ID {id} not found");
-            }
             return Ok(user);
         }
 
@@ -74,25 +71,17 @@ namespace Account.API.Controllers.V2
         {
             if (request == null)
             {
-                return BadRequest("User data cannot be null");
+                throw new BadRequestException("User data cannot be null");
             }
 
             var updatedUser = await _userService.Update(id, request);
-            if (updatedUser == null)
-            {
-                return NotFound($"User with ID {id} not found");
-            }
             return Ok(updatedUser);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _userService.Delete(id);
-            if (!result)
-            {
-                return NotFound($"User with ID {id} not found");
-            }
+            await _userService.Delete(id);
             return NoContent();
         }
     }

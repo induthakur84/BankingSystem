@@ -6,6 +6,7 @@ using Account.DTO.Resquest;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using ProjectCommonCode;
+using ProjectCommonCode.Exceptions;
 
 namespace Account.Data.Services
 {
@@ -22,6 +23,11 @@ namespace Account.Data.Services
 
         public async Task<UserRequest> Create(UserRequest request)
         {
+            if (request == null)
+            {
+                throw new BadRequestException("User request data cannot be null.");
+            }
+
             var userEntity = _mapper.Map<User>(request);
             await _context.Users.AddAsync(userEntity);
             await _context.SaveChangesAsync();
@@ -33,7 +39,7 @@ namespace Account.Data.Services
             var userEntity = await _context.Users.FindAsync(id);
             if (userEntity == null)
             {
-                return false;
+                throw new UserNotFoundException(id);
             }
             _context.Users.Remove(userEntity);
             await _context.SaveChangesAsync();
@@ -118,17 +124,22 @@ namespace Account.Data.Services
             var user = await _context.Users.FindAsync(id);
             if (user == null)
             {
-                return null;
+                throw new UserNotFoundException(id);
             }
             return _mapper.Map<UserResponse>(user);
         }
 
         public async Task<UserResponse?> Update(int id, UserRequest request)
         {
+            if (request == null)
+            {
+                throw new BadRequestException("User request data cannot be null.");
+            }
+
             var userEntity = await _context.Users.FindAsync(id);
             if (userEntity == null)
             {
-                return null;
+                throw new UserNotFoundException(id);
             }
             userEntity.Name = request.Name;
             userEntity.Email = request.Email;

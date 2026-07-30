@@ -60,39 +60,16 @@ builder.Services.AddApiVersioning(options =>
 
 
 });
-
-
-
-
-
-
-
 //here we can register the swagger configuration options helper we 
-
-
-
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
-
-
-
-
-
-
-
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-//1line
+app.UseMiddleware<ExceptionMiddleware>();
 
-
-
-
-
-//1000
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
