@@ -6,9 +6,11 @@
         public string Name { get; set; }
         public string Description { get; set; }
 
-        //many to many relationship 
 
-
-        public ICollection<Product> Products { get; set; }= new List<Product>();
+        // MANY-TO-MANY RELATIONSHIP
+        // One Category can contain multiple Products
+        // One Product can belong to multiple Categories
+        public ICollection<Product> Products { get; set; }
+            = new List<Product>();
     }
 }

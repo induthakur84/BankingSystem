@@ -6,7 +6,8 @@ namespace Account.Data.Context
     public class AccountDBContext:DbContext
     {
 
-        public AccountDBContext(DbContextOptions<AccountDBContext> options) : base(options) { }
+        public AccountDBContext(DbContextOptions<AccountDBContext> options) :
+            base(options) { }
            
         public DbSet<User> Users { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }

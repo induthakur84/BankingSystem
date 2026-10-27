@@ -10,28 +10,45 @@ using ProjectCommonCode.Exceptions;
 
 namespace Account.Data.Services
 {
+
+
+    //Encapsulation
+    // means adding all the data and method together in a single unit
+
+
+
     public class UserService : IUserInterface
     {
         private readonly AccountDBContext _context;
         private readonly IMapper _mapper;
-
         public UserService(AccountDBContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        public async Task<UserRequest> Create(UserRequest request)
+        public async Task<UserResponse> Create(UserRequest request)
         {
             if (request == null)
             {
-                throw new BadRequestException("User request data cannot be null.");
+                throw new BadRequestException("User request data cannot be" +
+                    " null.");
             }
 
+
+            // here i can convert our dto(userrequest) to domain table (User)
+
             var userEntity = _mapper.Map<User>(request);
+
+
+
             await _context.Users.AddAsync(userEntity);
             await _context.SaveChangesAsync();
-            return _mapper.Map<UserRequest>(userEntity);
+
+
+            //here we can convert our domaintable(user) to dto(UserResponse)
+
+            return _mapper.Map<UserResponse>(userEntity);
         }
 
         public async Task<bool> Delete(int id)
@@ -121,6 +138,8 @@ namespace Account.Data.Services
 
         public async Task<UserResponse?> GetById(int id)
         {
+
+            // select * from User where id=1
             var user = await _context.Users.FindAsync(id);
             if (user == null)
             {

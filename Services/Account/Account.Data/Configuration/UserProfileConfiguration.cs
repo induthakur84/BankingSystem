@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Account.Data.Configuration
 {
-    public class UserProfileConfiguration : IEntityTypeConfiguration<UserProfile>
+    public class UserProfileConfiguration :
+        IEntityTypeConfiguration<UserProfile>
     {
         public void Configure(EntityTypeBuilder<UserProfile> builder)
         {

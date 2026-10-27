@@ -29,7 +29,8 @@ namespace Account.API.Controllers.V1
             }
             
             var createdUser = await _userService.Create(request);
-            return CreatedAtAction(nameof(GetById), new { id = createdUser.Id }, createdUser);
+            return CreatedAtAction(nameof(GetById), new { id = createdUser.Id },
+                createdUser);
         }
 
         [HttpGet]
@@ -55,7 +56,8 @@ namespace Account.API.Controllers.V1
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<UserResponse>> Update(int id, [FromBody] UserRequest request)
+        public async Task<ActionResult<UserResponse>> Update(int id, 
+            [FromBody] UserRequest request)
         {
             if (request == null)
             {

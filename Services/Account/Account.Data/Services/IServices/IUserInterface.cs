@@ -10,11 +10,8 @@ namespace Account.Data.Services.IServices
     [RegisterScoped]
     public interface IUserInterface
     {
-
-        Task<UserRequest> Create(UserRequest request);
-
+        Task<UserResponse> Create(UserRequest request);
         Task<UserResponse?> Update(int id,UserRequest request);
-
         Task<PageResults<UserResponse>> GetAll(
             int pageNumber = 1,
 
@@ -26,7 +23,6 @@ namespace Account.Data.Services.IServices
             string? sortOrder= "desc"
             );
         Task<UserResponse?> GetById(int id);
-
         Task<bool> Delete(int id);
     }
 }

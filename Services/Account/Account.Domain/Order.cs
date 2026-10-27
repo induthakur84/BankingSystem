@@ -1,16 +1,19 @@
 ﻿namespace Account.Domain
 {
-    public  class Order
+    public class Order
     {
-
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 
-        //fk
+
+        // Foreign Key
+        // UserId connects the Order table with the User table
         public int UserId { get; set; }
 
-        //navigation property to the user entity
+
+        // Navigation Property
+        // Each Order belongs to only ONE User
         public User User { get; set; }
     }
 }

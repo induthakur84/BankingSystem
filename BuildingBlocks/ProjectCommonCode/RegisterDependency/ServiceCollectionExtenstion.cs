@@ -11,7 +11,8 @@ namespace ProjectCommonCode.RegisterDependency
 
             var types = Assembly.Load(assemblyName).GetTypes();
 
-            var interfaces= types.Where(t=>t.GetCustomAttribute<RegisterDependencyAttribute>() != null && t.IsInterface);
+            var interfaces= types.Where(t=>t.GetCustomAttribute
+            <RegisterDependencyAttribute>() != null && t.IsInterface);
 
             foreach (var @interface in interfaces)
             {
@@ -23,7 +24,8 @@ namespace ProjectCommonCode.RegisterDependency
 
         }
 
-        private static void AddServiceScriptor(IServiceCollection services, Type @type, Type @class)
+        private static void AddServiceScriptor(IServiceCollection services, Type
+            @type, Type @class)
         {
             var scope= type.GetCustomAttribute<RegisterDependencyAttribute>().Scope;
 
